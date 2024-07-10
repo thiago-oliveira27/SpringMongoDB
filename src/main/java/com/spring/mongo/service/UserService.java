@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.mongo.domain.User;
+import com.spring.mongo.dtos.UserDTO;
 import com.spring.mongo.repository.UserRepository;
 import com.spring.mongo.service.exception.ObjectNotFoundException;
-import com.spring.mongo.service.exception.UserNotFoundException;
 
 @Service
 public class UserService {
@@ -25,4 +25,18 @@ public class UserService {
 		Optional<User> obj = userRepository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 	}
+
+	public User insert(User user) {
+		return userRepository.insert(user);
+	}
+	
+	public void deleteUser(String id) {
+		findById(id);
+		userRepository.deleteById(id);
+	}
+	
+	public User fromDTO(UserDTO userDTO) {
+		return new User(userDTO.getId(), userDTO.getName(), userDTO.getEmail());
+	}
+
 }
