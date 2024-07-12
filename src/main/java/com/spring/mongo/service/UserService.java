@@ -1,18 +1,18 @@
 package com.spring.mongo.service;
 
-import java.util.List;
-import java.util.Optional;
 import java.beans.PropertyDescriptor;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import com.spring.mongo.domain.Post;
 import com.spring.mongo.domain.User;
 import com.spring.mongo.dtos.UserDTO;
 import com.spring.mongo.repository.UserRepository;
