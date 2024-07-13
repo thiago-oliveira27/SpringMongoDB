@@ -31,5 +31,10 @@ public class PostResource {
 	@RequestMapping(value="/tittleSearch", method=RequestMethod.GET)
 	public ResponseEntity<List<Post>> findByContainedTextInTittle(@RequestParam(value="text", defaultValue="") String text){
 		return ResponseEntity.ok().body(postService.findByContainedTextInTittle(URL.decodeUrlParam(text)));
-	}	
+	}
+	
+	@RequestMapping(value="/bodySearch", method=RequestMethod.GET)
+	public ResponseEntity<List<Post>> findByPostBody(@RequestParam(value="text", defaultValue="") String text){
+		return ResponseEntity.ok().body(postService.findByPostBody(URL.decodeUrlParam(text)));
+	}
 }

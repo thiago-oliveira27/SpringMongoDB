@@ -24,5 +24,9 @@ public class PostService {
 	public List<Post> findByContainedTextInTittle(String text) {
 		return postRepository.findByTittleContainingIgnoreCase(text);
 	}
+	
+	public List<Post> findByPostBody(String text) {
+		return postRepository.findByPostBody(text);
+	}
 		
 }
