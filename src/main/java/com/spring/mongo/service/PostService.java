@@ -1,5 +1,6 @@
 package com.spring.mongo.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,6 +28,10 @@ public class PostService {
 	
 	public List<Post> findByPostBody(String text) {
 		return postRepository.findByPostBody(text);
+	}
+	
+	public List<Post> findByTextAndGivenDate(String text, Date initialDate, Date finalDate){
+		return postRepository.findByTextAndGivenDate(text, initialDate, finalDate);
 	}
 		
 }
